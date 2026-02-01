@@ -289,6 +289,7 @@ public class SharedConfig {
     public static boolean adaptableColorInBrowser = true;
     public static boolean onlyLocalInstantView = false;
     public static boolean directShare = true;
+    public static boolean disableQuickReaction = false;
     public static boolean inappCamera = true;
     public static boolean roundCamera16to9 = true;
     public static boolean noSoundHintShowed = false;
@@ -596,6 +597,7 @@ public class SharedConfig {
             adaptableColorInBrowser = preferences.getBoolean("adaptableBrowser", false);
             onlyLocalInstantView = preferences.getBoolean("onlyLocalInstantView", BuildVars.DEBUG_PRIVATE_VERSION);
             directShare = preferences.getBoolean("direct_share", true);
+            disableQuickReaction = preferences.getBoolean("disableQuickReaction", false);
             shuffleMusic = preferences.getBoolean("shuffleMusic", false);
             playOrderReversed = !shuffleMusic && preferences.getBoolean("playOrderReversed", false);
             inappCamera = preferences.getBoolean("inappCamera", true);
@@ -1298,6 +1300,17 @@ public class SharedConfig {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("onlyLocalInstantView", onlyLocalInstantView);
         editor.apply();
+    }
+
+    public static void toggleDisableQuickReaction()
+    {
+        disableQuickReaction = !disableQuickReaction;
+        SharedPreferences preferences = MessagesController.getGlobalMainSettings();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("disableQuickReaction", disableQuickReaction);
+        editor.apply();
+        ShortcutManagerCompat.removeAllDynamicShortcuts(ApplicationLoader.applicationContext);
+        MediaDataController.getInstance(UserConfig.selectedAccount).buildShortcuts();
     }
 
     public static void toggleDirectShare() {

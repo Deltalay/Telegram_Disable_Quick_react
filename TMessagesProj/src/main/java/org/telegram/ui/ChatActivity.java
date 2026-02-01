@@ -1813,7 +1813,7 @@ public class ChatActivity extends BaseFragment implements
 
         @Override
         public void onDoubleTap(View view, int position, float x, float y) {
-            if (getParentActivity() == null || isSecretChat() || isInScheduleMode() || isInPreviewMode() || chatMode == MODE_QUICK_REPLIES) {
+            if (getParentActivity() == null || isSecretChat() || isInScheduleMode() || isInPreviewMode() || chatMode == MODE_QUICK_REPLIES || SharedConfig.disableQuickReaction) {
                 return;
             }
             MessageObject messageObject;
@@ -1827,6 +1827,7 @@ public class ChatActivity extends BaseFragment implements
             } else {
                 return;
             }
+            // TODO: Get setting to implement Disable Quick Reaction. 
             if (messageObject.isSecret() || !messageObject.canSetReaction() || messageObject.isExpiredStory() || messageObject.type == MessageObject.TYPE_JOINED_CHANNEL) {
                 return;
             }

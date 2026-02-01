@@ -575,6 +575,8 @@
     <string name="SecretChat">Chats Secretos</string>
     <string name="DirectShare">Compartilhamento Direto</string>
     <string name="DirectShareInfo">Mostra chats recentes no menu compartilhar.</string>
+    <string name="DisableQuickReaction">Disable Quick Reaction</string>
+    <string name="DisableQuickReactionInfo">Disable Quick Reaction When Double Taps</string>
     <string name="Emoji">Emoji</string>
     <string name="LargeEmoji">Emoji Grande</string>
     <string name="TelegramVersion">Telegram para Android %1$s</string>

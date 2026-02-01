@@ -588,6 +588,8 @@
     <string name="SecretChat">Geheime chats</string>
     <string name="DirectShare">Snel delen</string>
     <string name="DirectShareInfo">Recente chats in snel delen weergeven</string>
+    <string name="DisableQuickReaction">Disable Quick Reaction</string>
+    <string name="DisableQuickReactionInfo">Disable Quick Reaction When Double Taps</string>
     <string name="Emoji">Emoji</string>
     <string name="LargeEmoji">Grote emoji</string>
     <string name="TelegramVersion">Telegram voor Android %1$s</string>
